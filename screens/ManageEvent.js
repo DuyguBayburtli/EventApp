@@ -1,24 +1,24 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React, { useState, useContext, useLayoutEffect } from 'react';
 import { EvilIcons } from '@expo/vector-icons';
-import { CoursesContext } from '../store/coursesContext';
-import CourseForm from '../components/CourseForm';
-import { storeCourse, updateCourse, deleteCourseHttp } from '../helper/http';
+import { EventsContext } from '../store/EventsContext';
+import EventForm from '../components/EventForm';
+import { storeEvent, updateEvent, deleteEventHttp } from '../helper/http';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ErrorText from '../components/ErrorText';
 
-export default function ManageCourse({ route, navigation }) {
+export default function ManageEvent({ route, navigation }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState();
-  const coursesContext = useContext(CoursesContext);
-  const courseId = route.params?.courseId;
+  const eventsContext = useContext(EventsContext);
+  const eventId = route.params?.eventId;
   let isEditing = false;
 
-  const selectedCourse = coursesContext.courses.find(
-    (course) => course.id === courseId
+  const selectedEvent = eventsContext.events.find(
+    (event) => event.id === eventId
   );
 
-  if (courseId) {
+  if (eventId) {
     isEditing = true;
   }
 
@@ -30,12 +30,12 @@ export default function ManageCourse({ route, navigation }) {
     });
   }, [navigation, isEditing]);
 
-  async function deleteCourse() {
+  async function deleteEvent() {
     setIsSubmitting(true);
     setError(null);
     try {
-      coursesContext.deleteCourse(courseId);
-      await deleteCourseHttp(courseId);
+      eventsContext.deleteEvent(eventId);
+      await deleteEventHttp(eventId);
       navigation.goBack();
     } catch (error) {
       setError('Kursları silemedik!');
@@ -51,16 +51,16 @@ export default function ManageCourse({ route, navigation }) {
     navigation.goBack();
   }
 
-  async function addOrUpdateHandler(courseData) {
+  async function addOrUpdateHandler(eventData) {
     setIsSubmitting(true);
     setError(null);
     try {
       if (isEditing) {
-        coursesContext.updateCourse(courseId, courseData);
-        await updateCourse(courseId, courseData);
+        eventsContext.updateEvent(eventId, eventData);
+        await updateEvent(eventId, eventData);
       } else {
-        const id = await storeCourse(courseData);
-        coursesContext.addCourse({ ...courseData, id: id });
+        const id = await storeEvent(eventData);
+        eventsContext.addEvent({ ...eventData, id: id });
       }
       navigation.goBack();
     } catch (error) {
@@ -75,15 +75,15 @@ export default function ManageCourse({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <CourseForm
+      <EventForm
         buttonLabel={isEditing ? 'Güncelle' : 'Ekle'}
         onSubmit={addOrUpdateHandler}
         cancelHandler={cancelHandler}
-        defaultValues={selectedCourse}
+        defaultValues={selectedEvent}
       />
 
       {isEditing && (
-        <Pressable style={styles.deleteContainer} onPress={deleteCourse}>
+        <Pressable style={styles.deleteContainer} onPress={deleteEvent}>
           <EvilIcons
             name="trash"
             size={36}

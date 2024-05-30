@@ -2,12 +2,12 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const CourseItem = ({ id, title, location, date, time, description, image }) => {
+const EventItem = ({ id, title, location, date, time, description, image }) => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    const course = { id, title, location, date, time, description, image };
-    navigation.navigate('CourseScreen', { course });
+    const event = { id, title, location, date, time, description, image };
+    navigation.navigate('EventScreen', { event });
   };
 
   return (
@@ -96,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CourseItem;
+export default EventItem;

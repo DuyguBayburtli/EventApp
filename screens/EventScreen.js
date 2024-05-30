@@ -1,36 +1,36 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 
-const CourseScreen = ({ route }) => {
-  const { course } = route.params;
+const EventScreen = ({ route }) => {
+  const { event } = route.params;
   
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.card}>
-        {course.image ? (
-          <Image source={{ uri: course.image }} style={styles.image} />
+        {event.image ? (
+          <Image source={{ uri: event.image }} style={styles.image} />
         ) : (
           <View style={styles.imagePlaceholder}>
             <Text style={styles.imagePlaceholderText}>Görsel Yok</Text>
           </View>
         )}
         <View style={styles.detailsContainer}>
-          <Text style={styles.title}>{course.title}</Text>
+          <Text style={styles.title}>{event.title}</Text>
           <View style={styles.detailItem}>
             <Text style={styles.detailLabel}>Konum:</Text>
-            <Text style={styles.detailText}>{course.location}</Text>
+            <Text style={styles.detailText}>{event.location}</Text>
           </View>
           <View style={styles.detailItem}>
             <Text style={styles.detailLabel}>Tarih:</Text>
-            <Text style={styles.detailText}>{new Date(course.date).toLocaleDateString()}</Text>
+            <Text style={styles.detailText}>{new Date(event.date).toLocaleDateString()}</Text>
           </View>
           <View style={styles.detailItem}>
             <Text style={styles.detailLabel}>Saat:</Text>
-            <Text style={styles.detailText}>{course.time}</Text>
+            <Text style={styles.detailText}>{event.time}</Text>
           </View>
           <View style={styles.detailItem}>
             <Text style={styles.detailLabel}>Açıklama:</Text>
-            <Text style={styles.detailText}>{course.description}</Text>
+            <Text style={styles.detailText}>{event.description}</Text>
           </View>
           <TouchableOpacity style={styles.button}>
             <Text style={styles.buttonText}>Katıl</Text>
@@ -111,4 +111,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CourseScreen;
+export default EventScreen;

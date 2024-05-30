@@ -1,13 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-//import CoursesSummary from './CoursesSummary';
-import CoursesList from './CoursesList';
+import EventsList from './EventsList';
 
-export default function Courses({ coursesPeriod, courses, nullText }) {
+export default function Events({ eventsPeriod, events, nullText }) {
   let content = <Text style={styles.alert}>{nullText}</Text>;
 
-  if (courses.length > 0) {
-    content = <CoursesList courses={courses} />;
+  if (events.length > 0) {
+    content = <eventsList events={events} />;
   }
   return (
     <View style={styles.container}>

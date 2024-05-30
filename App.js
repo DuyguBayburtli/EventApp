@@ -5,21 +5,21 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AntDesign, Entypo, MaterialIcons } from '@expo/vector-icons';
 import React, { useState, useEffect } from 'react';
-import ManageCourse from './screens/ManageCourse';
-import RecentCourses from './screens/RecentCourses';
-import AllCourses from './screens/AllCourses';
+import ManageEvent from './screens/ManageEvent';
+import RecentEvents from './screens/RecentEvents';
+import AllEvents from './screens/AllEvents';
 import LoginScreen from './screens/LoginScreen';
-import CourseScreen from './screens/CourseScreen';
+import EventScreen from './screens/EventScreen';
 
 import ProfileScreen from './screens/ProfileScreen';
 import SignUpScreen from './screens/SignupScreen';
-import CoursesContextProvider from './store/coursesContext';
+import EventsContextProvider from './store/EventsContext';
 import { auth, checkIfAdmin } from './firebase';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function CourseOverview() {
+function EventOverview() {
   const [isAdmin, setIsAdmin] = useState(false);
   
   useEffect(() => {
@@ -62,8 +62,8 @@ function CourseOverview() {
     }}
   >
     <Tab.Screen
-      name="RecentCourses"
-      component={RecentCourses}
+      name="RecentEvents"
+      component={RecentEvents}
       options={{headerShown: false ,
         title: 'Yakın Zamanda Kaydolunanlar',
         tabBarLabel: 'Yakın Zamanda',
@@ -73,8 +73,8 @@ function CourseOverview() {
       }}
     />
     <Tab.Screen
-      name="AllCourses"
-      component={AllCourses}
+      name="AllEvents"
+      component={AllEvents}
       options={{headerShown: false ,
         title: 'Tüm Kurslar',
         tabBarLabel: 'Tüm Kurslar',
@@ -100,7 +100,7 @@ function CourseOverview() {
 
 export default function App() {
   return (
-    <CoursesContextProvider>
+    <EventsContextProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen
@@ -114,19 +114,19 @@ export default function App() {
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="CourseOverview"
-            component={CourseOverview}
+            name="EventOverview"
+            component={EventOverview}
             options={{ headerShown: false }}
           />
           <Stack.Screen
-            name="ManageCourse"
-            component={ManageCourse}
+            name="ManageEvent"
+            component={ManageEvent}
             //options={{ headerShown: false }}
           />
-          <Stack.Screen name="CourseScreen" component={CourseScreen} />
+          <Stack.Screen name="EventScreen" component={EventScreen} />
         </Stack.Navigator>
       </NavigationContainer>
-    </CoursesContextProvider>
+    </EventsContextProvider>
   );
 }
 

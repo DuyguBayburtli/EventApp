@@ -1,23 +1,23 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { db } from '../firebase'; // Firestore bağlantısını içe aktar
-import CourseItem from '../components/CourseItem';
-import { CoursesContext } from '../store/coursesContext';
+import EventItem from '../components/EventItem';
+import { EventsContext } from '../store/EventsContext';
 
-const AllCourses = () => {
+const AllEvents = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-    const coursesContext = useContext(CoursesContext);
+    const eventsContext = useContext(EventsContext);
 
     useEffect(() => {
-        const fetchCourses = async () => {
+        const fetchEvents = async () => {
             setIsLoading(true);
             setError(null);
             try {
-                const coursesRef = db.collection('courses');
-                const snapshot = await coursesRef.get();
-                const coursesData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                coursesContext.setCourses(coursesData);
+                const eventsRef = db.collection('events');
+                const snapshot = await eventsRef.get();
+                const eventsData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                eventsContext.setEvents(eventsData);
                 setIsLoading(false);
             } catch (err) {
                 setError('Kurslar yüklenirken bir hata oluştu!');
@@ -25,7 +25,7 @@ const AllCourses = () => {
             }
         };
 
-        fetchCourses();
+        fetchEvents();
     }, []);
 
     if (isLoading) {
@@ -44,9 +44,9 @@ const AllCourses = () => {
         );
     }
 
-    const renderCourseItem = ({ item }) => {
+    const renderEventItem = ({ item }) => {
         return (
-            <CourseItem
+            <EventItem
                 id={item.id}
                 title={item.title}
                 location={item.location}
@@ -62,9 +62,9 @@ const AllCourses = () => {
         <View style={styles.container}>
             <Text style={styles.title}>Tüm Kurslar</Text>
             <FlatList
-                data={coursesContext.courses}
+                data={eventsContext.events}
                 keyExtractor={item => item.id}
-                renderItem={renderCourseItem}
+                renderItem={renderEventItem}
                 contentContainerStyle={styles.list}
             />
         </View>
@@ -104,4 +104,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default AllCourses;
+export default AllEvents;

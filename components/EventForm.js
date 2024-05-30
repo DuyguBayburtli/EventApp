@@ -22,7 +22,7 @@ export default function Form({ cancelHandler, onSubmit, buttonLabel, defaultValu
   }
 
   function submitHandler() {
-    const courseData = {
+    const eventData = {
       title: inputs.title.value,
       location: inputs.location.value,
       date: new Date(inputs.date.value),
@@ -31,12 +31,12 @@ export default function Form({ cancelHandler, onSubmit, buttonLabel, defaultValu
       image: inputs.image.value,
     };
 
-    const titleIsValid = courseData.title.trim().length > 0;
-    const locationIsValid = courseData.location.trim().length > 0;
-    const dateIsValid = courseData.date.toString() !== 'Invalid Date';
-    const timeIsValid = courseData.time.trim().length > 0;
-    const descriptionIsValid = courseData.description.trim().length > 0;
-    const imageIsValid = courseData.image.trim().length > 0;
+    const titleIsValid = eventData.title.trim().length > 0;
+    const locationIsValid = eventData.location.trim().length > 0;
+    const dateIsValid = eventData.date.toString() !== 'Invalid Date';
+    const timeIsValid = eventData.time.trim().length > 0;
+    const descriptionIsValid = eventData.description.trim().length > 0;
+    const imageIsValid = eventData.image.trim().length > 0;
 
     if (!titleIsValid || !locationIsValid || !dateIsValid || !timeIsValid || !descriptionIsValid || !imageIsValid) {
       setInputs((currentInputs) => {
@@ -52,7 +52,7 @@ export default function Form({ cancelHandler, onSubmit, buttonLabel, defaultValu
       return;
     }
 
-    onSubmit(courseData);
+    onSubmit(eventData);
   }
 
   return (

@@ -60,7 +60,7 @@ const ProfileScreen = () => {
       </View>
       {isAdmin && (
         <View style={styles.menuItem}>
-          <TouchableOpacity onPress={() => navigation.navigate('ManageCourse')} style={styles.menuItemButton}>
+          <TouchableOpacity onPress={() => navigation.navigate('ManageEvent')} style={styles.menuItemButton}>
             <Text style={styles.menuItemText}>Kurs Ekle</Text>
           </TouchableOpacity>
         </View>

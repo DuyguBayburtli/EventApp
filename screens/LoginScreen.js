@@ -12,7 +12,7 @@ export default function LoginScreen() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        navigation.navigate('CourseOverview');
+        navigation.navigate('EventOverview');
       }
     });
     return unsubscribe;
@@ -24,13 +24,13 @@ export default function LoginScreen() {
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log('Kullanıcı giriş yaptı', user.email);
-        navigation.navigate('CourseOverview');
+        navigation.navigate('EventOverview');
       })
       .catch((error) => alert(error.message));
   };
 
   return (
-    <ImageBackground source={require('../assets/gokkusagı.jpg')} style={styles.backgroundImage}>
+    <ImageBackground source={require('../assets/.jpg')} style={styles.backgroundImage}>
       <KeyboardAvoidingView style={styles.container} behavior="padding">
         <View style={styles.headerContainer}>
           <Text style={styles.headerText}>Merhaba!</Text>
