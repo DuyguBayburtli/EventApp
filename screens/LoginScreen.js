@@ -30,7 +30,7 @@ export default function LoginScreen() {
   };
 
   return (
-    <ImageBackground source={require('../assets/.jpg')} style={styles.backgroundImage}>
+    <ImageBackground source={require('../assets/gokkusagı.jpg')} style={styles.backgroundImage}>
       <KeyboardAvoidingView style={styles.container} behavior="padding">
         <View style={styles.headerContainer}>
           <Text style={styles.headerText}>Merhaba!</Text>
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   button: {
-    backgroundColor: '#666',
+    backgroundColor: '#333',
     padding: 15,
     alignItems: 'center',
     borderRadius: 30, // Daha yumuşak köşeler

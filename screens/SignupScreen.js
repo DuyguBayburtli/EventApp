@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   button: {
-    backgroundColor: '#777',
+    backgroundColor: '#333',
     padding: 15,
     alignItems: 'center',
     borderRadius: 30, // Daha yumuşak köşeler

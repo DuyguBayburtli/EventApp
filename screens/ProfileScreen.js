@@ -58,13 +58,11 @@ const ProfileScreen = () => {
           <Text style={styles.menuItemText}>Ayarlar</Text>
         </TouchableOpacity>
       </View>
-      {isAdmin && (
-        <View style={styles.menuItem}>
-          <TouchableOpacity onPress={() => navigation.navigate('ManageEvent')} style={styles.menuItemButton}>
-            <Text style={styles.menuItemText}>Kurs Ekle</Text>
-          </TouchableOpacity>
-        </View>
-      )}
+      <View style={styles.menuItem}>
+        <TouchableOpacity onPress={() => navigation.navigate('ManageEvent')} style={styles.menuItemButton}>
+          <Text style={styles.menuItemText}>Etkinlik Ekle</Text>
+        </TouchableOpacity>
+      </View>
       <View style={styles.menuItem}>
         <TouchableOpacity onPress={handleSignOut} style={[styles.menuItemButton, styles.logoutButton]}>
           <Text style={styles.menuItemText}>Çıkış Yap</Text>
@@ -77,30 +75,30 @@ const ProfileScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212', // Dark mode arka plan rengi
+    backgroundColor: '#fff', // Açık arka plan rengi
     padding: 20,
   },
   nameText: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#333', // Koyu gri
     marginBottom: 10,
   },
   emailText: {
     fontSize: 18,
-    color: '#bbbbbb',
+    color: '#666', // Gri tonu
     marginBottom: 20,
   },
   loadingText: {
     fontSize: 18,
-    color: '#bbbbbb',
+    color: '#666', // Gri tonu
   },
   menuItem: {
     width: '100%',
     marginBottom: 10,
   },
   menuItemButton: {
-    backgroundColor: '#1f1f1f',
+    backgroundColor: '#eee', // Açık gri arka plan rengi
     paddingVertical: 15,
     paddingHorizontal: 20,
     borderRadius: 10,
@@ -109,10 +107,10 @@ const styles = StyleSheet.create({
   },
   menuItemText: {
     fontSize: 18,
-    color: '#ffffff',
+    color: '#333', // Koyu gri
   },
   logoutButton: {
-    backgroundColor: '#d9534f',
+    backgroundColor: '#fbb', // Kırmızı
   },
 });
 

@@ -150,118 +150,98 @@ export default function Form({ cancelHandler, onSubmit, buttonLabel, defaultValu
   );
 }
 const styles = StyleSheet.create({
-backgroundImage: {
-  flex: 1,
-  width: '100%',
-  height: '100%',
-  justifyContent: 'center',
-  alignItems: 'center',
-},
-container: {
-  flex: 1,
-  justifyContent: 'center',
-  alignItems: 'center',
-  backgroundColor: 'rgba(255, 255, 255, 0.7)', // Arka planı hafif opak yapar
-  width: '100%',
-  padding: 20,
-},
-title: {
-fontSize: 25,
-fontWeight: 'bold',
-textAlign: 'center',
-color: '#444',
-marginVertical: 10,
-marginBottom: 0,
-},
-inputContainer: {
-  width: '100%',
-  marginBottom: 10,
-  color:'#444'
-},
-row: {
-  flexDirection: 'row',
-  marginBottom: 10, // Tarih ve saat arasındaki boşluk
-  marginHorizontal:30,
-  marginLeft:20,
-  marginStart:0,
-  paddingVertical:10,
-  justifyContent: 'space-between',
-  
-},
-buttons: {
-  flexDirection: 'row', // Butonları yan yana koy
-  marginTop: 0, // Butonların üst boşluğu
-  padding:20
-},
-halfWidth: {
-  flex: 1,
-  marginHorizontal: 35,
-  marginStart:5, 
-  paddingVertical:10
-
-},
-
-cancel: {
-  backgroundColor: '#444', // İptal butonu rengi
-  minWidth: 120,
-  marginRight: 10,
-  padding: 8,
-  borderRadius: 8,
-  alignItems: 'center',
-  shadowColor: '#000',
-  shadowOffset: { width: 0, height: 4 },
-  shadowOpacity: 0.3,
-  shadowRadius: 5,
-  elevation: 8,
-},
-submit: {
-  backgroundColor: 'orange', // Gönder butonu rengi
-  minWidth: 120,
-  marginLeft: 10,
-  padding: 8,
-  borderRadius: 8,
-  alignItems: 'center',
-  shadowColor: '#000',
-  shadowOffset: { width: 0, height: 4 },
-  shadowOpacity: 0.3,
-  shadowRadius: 5,
-  elevation: 8,
-},
-cancelText: {
-color: 'white',
-fontWeight: 'bold',
-},
-
-submitText: {
-color: 'white',
-fontWeight: 'bold',
-},
-error: {
-alignItems: 'center',
-marginVertical: 10,
-},
-errorText: {
-color: 'red',
-fontWeight: 'bold',
-},
-input: {
-  backgroundColor: '#fff', // Beyaz arka plan
-  paddingHorizontal: 20, // Daha fazla iç boşluk
-  paddingVertical: 10,
-  marginTop: 10, // Daha fazla üst boşluk
-  borderRadius: 40, // Daha yuvarlak köşeler
-  borderWidth: 1,
-  borderColor: '#ddd', // Daha yumuşak bir gri ton
-  fontSize: 16, // Daha büyük yazı boyutu
-  shadowColor: '#000', // Gölgelendirme için
-  shadowOffset: { width: 0, height: 4 },
-  shadowOpacity: 0.3,
-  shadowRadius: 5,
-  elevation: 8, // Android'de gölge için
-},
-label: {
-color: '#444',
-marginBottom: 5,
-textAlign: 'center',
-},
+  backgroundImage: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.7)', // Arka planı hafif opak yapar
+    width: '100%',
+    padding: 20,
+  },
+  title: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#444',
+    marginVertical: 10,
+    marginBottom: 0,
+  },
+  inputContainer: {
+    width: '100%',
+    marginBottom: 10,
+    color:'#444'
+  },
+  row: {
+    flexDirection: 'row',
+    marginBottom: 10, // Tarih ve saat aras
+    marginHorizontal: 30,
+    paddingHorizontal: 20,
+    justifyContent: 'space-between',
+  },
+  buttons: {
+    flexDirection: 'row', // Butonları yan yana koy
+    marginTop: 10, // Butonların üst boşluğu
+    paddingHorizontal: 20,
+  },
+  cancel: {
+    backgroundColor: '#ff6347', // İptal butonu rengi
+    minWidth: 120,
+    marginRight: 10,
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  submit: {
+    backgroundColor: '#5cb85c', // Gönder butonu rengi
+    minWidth: 120,
+    marginLeft: 10,
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  cancelText: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
+  submitText: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
+  error: {
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  errorText: {
+    color: 'red',
+    fontWeight: 'bold',
+  },
+  input: {
+    backgroundColor: 'white', // Beyaz arka plan
+    paddingHorizontal: 20, // Daha fazla iç boşluk
+    paddingVertical: 12,
+    marginTop: 10, // Daha fazla üst boşluk
+    borderRadius: 30, // Daha yuvarlak köşeler
+    borderWidth: 1,
+    borderColor: '#ddd', // Daha yumuşak bir gri ton
+    fontSize: 16, // Daha büyük yazı boyutu
+    shadowColor: '#000', // Gölgelendirme için
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 8, // Android'de gölge için
+  },
+  label: {
+    color: '#444',
+    marginBottom: 5,
+    textAlign: 'center',
+  },
 });

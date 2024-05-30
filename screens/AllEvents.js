@@ -20,7 +20,7 @@ const AllEvents = () => {
                 eventsContext.setEvents(eventsData);
                 setIsLoading(false);
             } catch (err) {
-                setError('Kurslar yüklenirken bir hata oluştu!');
+                setError('Etkinlikler yüklenirken bir hata oluştu!');
                 setIsLoading(false);
             }
         };
@@ -60,7 +60,7 @@ const AllEvents = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Tüm Kurslar</Text>
+            <Text style={styles.title}>Tüm Etkinlikler</Text>
             <FlatList
                 data={eventsContext.events}
                 keyExtractor={item => item.id}
@@ -74,13 +74,13 @@ const AllEvents = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#121212', // Dark mode arka plan rengi
+        backgroundColor: '#fff', // Açık arka plan rengi
         padding: 20,
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#ffffff',
+        color: '#333', // Başlık rengi
         marginBottom: 20,
         marginTop: 20, // Başlığı biraz daha aşağı almak için
         textAlign: 'center',
@@ -96,11 +96,11 @@ const styles = StyleSheet.create({
     },
     loadingText: {
         fontSize: 18,
-        color: '#ffffff',
+        color: '#333', // Yükleme metni rengi
     },
     errorText: {
         fontSize: 18,
-        color: 'red',
+        color: 'red', // Hata metni rengi
     },
 });
 

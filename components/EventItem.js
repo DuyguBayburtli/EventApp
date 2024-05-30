@@ -26,7 +26,7 @@ const EventItem = ({ id, title, location, date, time, description, image }) => {
           <Text style={styles.dateTime}>
             {new Date(date).toLocaleDateString()} - {time}
           </Text>
-          
+          {/* Açıklama metni */}
         </View>
       </View>
     </TouchableOpacity>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   card: {
     flexDirection: 'row',
-    backgroundColor: '#1e1e1e', // Dark mode arka plan rengi
+    backgroundColor: '#fff', // Açık arka plan rengi
     borderRadius: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -59,12 +59,12 @@ const styles = StyleSheet.create({
     height: 100,
     borderTopLeftRadius: 15,
     borderBottomLeftRadius: 15,
-    backgroundColor: '#555', // Dark mode arka plan rengi
+    backgroundColor: '#ccc', // Açık gri arka plan rengi
     justifyContent: 'center',
     alignItems: 'center',
   },
   imagePlaceholderText: {
-    color: '#aaa', // Daha açık bir gri tonu
+    color: '#666', // Gri tonu
   },
   details: {
     flex: 1,
@@ -73,25 +73,25 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#ffffff', // Beyaz renk
+    color: '#333', // Koyu gri
     marginBottom: 5,
     fontFamily: 'sans-serif-medium',
   },
   location: {
     fontSize: 14,
-    color: '#ccc', // Açık gri
+    color: '#666', // Gri tonu
     marginBottom: 5,
     fontFamily: 'sans-serif',
   },
   dateTime: {
     fontSize: 12,
-    color: '#999', // Koyu gri
+    color: '#999', // Daha açık gri tonu
     marginBottom: 10,
     fontFamily: 'sans-serif',
   },
   description: {
     fontSize: 14,
-    color: '#ddd', // Açık gri
+    color: '#666', // Gri tonu
     fontFamily: 'sans-serif',
   },
 });

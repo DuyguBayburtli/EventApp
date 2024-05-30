@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AntDesign, Entypo, MaterialIcons } from '@expo/vector-icons';
 import React, { useState, useEffect } from 'react';
 import ManageEvent from './screens/ManageEvent';
-import RecentEvents from './screens/RecentEvents';
+import MyEvents from './screens/MyEvents';
 import AllEvents from './screens/AllEvents';
 import LoginScreen from './screens/LoginScreen';
 import EventScreen from './screens/EventScreen';
@@ -38,9 +38,8 @@ function EventOverview() {
     <Tab.Navigator
     screenOptions={{
       tabBarStyle: {
-        backgroundColor: '#1e1e1e', // Dark mode arka plan rengi
-       
-        shadowColor: '#000',
+        backgroundColor: '#ffffff', // Açık arka plan rengi
+        shadowColor: '#ccc',
         shadowOpacity: 0.8,
         shadowRadius: 20,
         shadowOffset: { height: 2, width: 0 },
@@ -49,40 +48,44 @@ function EventOverview() {
         height: 70,
         overflow: 'hidden',
       },
-      tabBarActiveTintColor: '#dddddd', // Aktif renk olarak açık gri
-      tabBarInactiveTintColor: '#666666', // Pasif renk olarak koyu gri
+      tabBarActiveTintColor: '#111', // Aktif renk olarak mavi
+      tabBarInactiveTintColor: '#8e8e93', // Pasif renk olarak açık gri
       tabBarLabelStyle: {
         fontSize: 12,
         fontWeight: 'bold',
         fontFamily: 'sans-serif',
       },
       tabBarBackground: () => (
-        <View style={{ backgroundColor: '#1e1e1e' }} /> // Dark mode uyumlu arka plan rengi
+        <View style={{ backgroundColor: '#ffffff' }} /> // Açık arka plan rengi
       ),
     }}
+    
   >
     <Tab.Screen
-      name="RecentEvents"
-      component={RecentEvents}
-      options={{headerShown: false ,
-        title: 'Yakın Zamanda Kaydolunanlar',
-        tabBarLabel: 'Yakın Zamanda',
-        tabBarIcon: ({ color }) => (
-          <MaterialIcons name="history" size={24} color={color} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="AllEvents"
-      component={AllEvents}
-      options={{headerShown: false ,
-        title: 'Tüm Kurslar',
-        tabBarLabel: 'Tüm Kurslar',
-        tabBarIcon: ({ color }) => (
-          <MaterialIcons name="menu-book" size={24} color={color} />
-        ),
-      }}
-    />
+  name="MyEvents"
+  component={MyEvents}
+  options={{
+    headerShown: false,
+    title: 'Etkinliklerim',
+    tabBarLabel: 'Etkinliklerim',
+    tabBarIcon: ({ color }) => (
+      <MaterialIcons name="event" size={24} color={color} />
+    ),
+  }}
+/>
+<Tab.Screen
+  name="AllEvents"
+  component={AllEvents}
+  options={{
+    headerShown: false,
+    title: 'Tüm Etkinlikler',
+    tabBarLabel: 'Tüm Etkinlikler',
+    tabBarIcon: ({ color }) => (
+      <MaterialIcons name="event-note" size={24} color={color} />
+    ),
+  }}
+/>
+
     <Tab.Screen
       name="Profile"
       component={ProfileScreen}
@@ -123,7 +126,7 @@ export default function App() {
             component={ManageEvent}
             //options={{ headerShown: false }}
           />
-          <Stack.Screen name="EventScreen" component={EventScreen} />
+          <Stack.Screen name="EventScreen" component={EventScreen} options={{ headerShown: false }}/>
         </Stack.Navigator>
       </NavigationContainer>
     </EventsContextProvider>

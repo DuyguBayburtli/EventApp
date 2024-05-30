@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     padding: 20,
-    backgroundColor: '#1e1e1e', // Dark mode uyumlu arka plan rengi
+    backgroundColor: '#fff', // Açık tema uyumlu arka plan rengi
   },
   card: {
-    backgroundColor: '#292929', // Dark mode uyumlu kart arka plan rengi
+    backgroundColor: '#f0f0f0', // Açık tema uyumlu kart arka plan rengi
     borderRadius: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 10 },
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     overflow: 'hidden',
     marginBottom: 20,
+    marginTop: 100, // Kartı biraz aşağı itmek için marginTop eklendi
   },
   image: {
     width: '100%',
@@ -65,12 +66,12 @@ const styles = StyleSheet.create({
   imagePlaceholder: {
     width: '100%',
     height: 300,
-    backgroundColor: '#3a3a3a', // Dark mode uyumlu görsel yok arka plan rengi
+    backgroundColor: '#e0e0e0', // Açık tema uyumlu görsel yok arka plan rengi
     justifyContent: 'center',
     alignItems: 'center',
   },
   imagePlaceholderText: {
-    color: '#6c757d', // Dark mode uyumlu görsel yok metin rengi
+    color: '#777', // Açık tema uyumlu görsel yok metin rengi
     fontSize: 18,
   },
   detailsContainer: {
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff', // Dark mode uyumlu başlık metin rengi
+    color: '#333', // Açık tema uyumlu başlık metin rengi
     marginBottom: 20,
     textAlign: 'center',
   },
@@ -90,16 +91,16 @@ const styles = StyleSheet.create({
   detailLabel: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#bbb', // Dark mode uyumlu detay etiketi metin rengi
+    color: '#555', // Açık tema uyumlu detay etiketi metin rengi
     marginRight: 10,
   },
   detailText: {
     fontSize: 16,
-    color: '#ddd', // Dark mode uyumlu detay metin rengi
+    color: '#666', // Açık tema uyumlu detay metin rengi
   },
   button: {
     marginTop: 20,
-    backgroundColor: '#ff6f61',
+    backgroundColor: '#ff8c8c', // Açık tema uyumlu buton arka plan rengi
     paddingVertical: 15,
     borderRadius: 25,
     alignItems: 'center',
@@ -110,5 +111,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
 });
+
 
 export default EventScreen;

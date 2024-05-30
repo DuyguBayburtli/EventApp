@@ -25,6 +25,7 @@ export default function ManageEvent({ route, navigation }) {
   useLayoutEffect(() => {
     navigation.setOptions({
       title: isEditing ? 'Kursu Güncelle' : 'Kurs Ekle',
+      headerShown: false,
       headerStyle: { backgroundColor: '#333' }, // Koyu gri arka plan rengi
       headerTintColor: '#ffffff',
     });
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding:0,
-    backgroundColor: '#333', // Koyu gri arka plan rengi
+    backgroundColor: '#666', // Koyu gri arka plan rengi
   },
   deleteContainer: {
     alignItems: 'center',
